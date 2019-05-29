@@ -15,9 +15,6 @@ namespace Customers.Entity
         [JsonProperty("name", Required = Required.Always)]
         public string Name { get; private set; }
 
-        public Location GetLocation()
-        {
-            return new Location(Latitude, Longitude);
-        }
+        public Location UserLocation => new Location(Latitude, Longitude);
     }
 }

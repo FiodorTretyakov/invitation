@@ -7,10 +7,7 @@ namespace Customers
     {
         public const int EarthRadius = 6371;
 
-        public static double GetRadians(double x)
-        {
-            return x * Math.PI / 180;
-        }
+        public static double GetRadians(double x) => x * Math.PI / 180;
 
         public static bool IsCloseTo(Location to, Location from, int distance) => GetDistanceBetween(to, from) <= distance;
 
