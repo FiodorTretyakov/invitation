@@ -5,12 +5,19 @@ using Customers.Entity;
 
 namespace Customers
 {
-    public class Processor
+    public abstract class Processor
     {
-        public static ICollection<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data);
+        public ICollection<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data);
 
-        public static IReadOnlyDictionary<int, string> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>
+        public IReadOnlyDictionary<int, string> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>
             customers.Where(c => Locator.IsCloseTo(location, c.UserLocation, distance)).OrderBy(c => c.UserId)
                 .ToDictionary(c => c.UserId, c => c.Name);
+
+        protected abstract string GetData(string inputLocation);
+
+        protected abstract void SaveData(IReadOnlyDictionary <int, string> customers, string outputLocation);
+
+        public void Run(string inputLocation, string outputLocation, int distance, Location location) =>
+            SaveData(GetClosestCustomers(Deserialize(GetData(inputLocation)), location, distance), outputLocation);
     }
 }
