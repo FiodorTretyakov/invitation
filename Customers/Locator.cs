@@ -3,7 +3,7 @@ using Customers.Entity;
 
 namespace Customers
 {
-    public class Locator
+    public static class Locator
     {
         public const int EarthRadius = 6371;
 
