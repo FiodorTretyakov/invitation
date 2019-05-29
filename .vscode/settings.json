@@ -2,5 +2,9 @@
     "cSpell.words": [
         "Fiodor",
         "Tretyakov"
-    ]
+    ],
+    "files.exclude" : {
+        "**/bin": true,
+        "**/obj": true
+    }   
 }
