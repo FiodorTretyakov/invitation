@@ -15,9 +15,7 @@ namespace Customers
             };
         }
 
-        protected override void SaveData(string data, string outputLocation)
-        {
+        protected override void SaveData(string data, string outputLocation) =>
             File.WriteAllText(outputLocation, data);
-        }
     }
 }

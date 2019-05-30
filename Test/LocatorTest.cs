@@ -23,6 +23,6 @@ namespace Test
 
         [TestMethod]
         public void GetDistanceBetweenTestDublinSanFrancisco() =>
-Assert.IsTrue(Math.Abs(8184.336 - Locator.GetDistanceBetween(new Location(53.3394238, -6.2583594), new Location(37.434637, -121.9223545))) < Threshold);
+            Assert.IsTrue(Math.Abs(8184.336 - Locator.GetDistanceBetween(new Location(53.3394238, -6.2583594), new Location(37.434637, -121.9223545))) < Threshold);
     }
 }

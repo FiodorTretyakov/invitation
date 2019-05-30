@@ -5,8 +5,10 @@ namespace Customers.Entity
 {
     public class Customer : Location
     {
-        public Customer(double latitude, double longitude) : base(latitude, longitude)
+        public Customer(int userId, string name, double latitude, double longitude) : base(latitude, longitude)
         {
+            UserId = userId;
+            Name = name;
         }
 
         [JsonProperty("used_id", Required = Required.Always)]
