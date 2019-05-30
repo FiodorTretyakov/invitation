@@ -1,10 +1,8 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
 namespace Customers.Entity
 {
-    [Serializable]
     public class Customer : Location
     {
         public Customer(double latitude, double longitude) : base(latitude, longitude)
