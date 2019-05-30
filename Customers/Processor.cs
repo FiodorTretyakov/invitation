@@ -16,9 +16,9 @@ namespace Customers
         public static string Serialize(ICollection<Customer> customers) =>
             JsonConvert.SerializeObject(customers);
 
-        protected abstract string GetData(string inputLocation);
+        public abstract string GetData(string inputLocation);
 
-        protected abstract void SaveData(string data, string outputLocation);
+        public abstract void SaveData(string data, string outputLocation);
 
         //distance in km
         public void Run(string inputLocation, string outputLocation, int distance, double latitude, double longitude) =>

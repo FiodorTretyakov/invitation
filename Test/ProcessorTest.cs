@@ -22,7 +22,7 @@ namespace Test
         public const string SerializedData =
             "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
 
-        public async Task<string> GetRawData() => await File.ReadAllTextAsync("customers.json");
+        public static async Task<string> GetRawData() => await File.ReadAllTextAsync("customers.json");
 
         [TestMethod]
         public void GetClosestCustomersTest()
@@ -61,6 +61,15 @@ namespace Test
                 Assert.AreEqual(TestCustomers[i].UserId, customers[i].UserId);
                 Assert.AreEqual(TestCustomers[i].Name, customers[i].Name);
             }
+        }
+        
+        [TestMethod]
+        public async Task GetDataTest()
+        {
+            var data = new FileProcessor().GetData("https://raw.githubusercontent.com/FiodorTretyakov/invitation/master/Test/customers.json");
+            
+            Assert.IsNotNull(data);
+            Assert.AreEqual(await GetRawData(), data);
         }
     }
 }

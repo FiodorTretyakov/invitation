@@ -7,7 +7,7 @@ namespace Customers
 {
     public class FileProcessor : Processor
     {
-        protected override string GetData(string inputLocation)
+        public override string GetData(string inputLocation)
         {
             using (var client = new HttpClient())
             {
@@ -15,7 +15,7 @@ namespace Customers
             };
         }
 
-        protected override void SaveData(string data, string outputLocation) =>
+        public override void SaveData(string data, string outputLocation) =>
             File.WriteAllText(outputLocation, data);
     }
 }
