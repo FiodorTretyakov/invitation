@@ -23,7 +23,7 @@ namespace Test
         public const string SerializedData =
             "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
 
-        public static async Task<string> GetRawData() => await File.ReadAllTextAsync("customers.json");
+        public static async Task<string> GetRawData() => await File.ReadAllTextAsync("customers.json").ConfigureAwait(false);
 
         [TestMethod]
         public void GetClosestCustomersTest()
@@ -50,7 +50,7 @@ namespace Test
         [TestMethod]
         public async Task DeserializeTest()
         {
-            var customers = FileProcessor.Deserialize(await GetRawData());
+            var customers = FileProcessor.Deserialize(await GetRawData().ConfigureAwait(false));
 
             Assert.IsNotNull(customers);
             Assert.AreEqual(TestCustomers.Count, customers.Count);
@@ -70,7 +70,7 @@ namespace Test
             var data = new FileProcessor().GetData("https://raw.githubusercontent.com/FiodorTretyakov/invitation/master/Test/customers.json");
 
             Assert.IsNotNull(data);
-            Assert.AreEqual(await GetRawData(), data);
+            Assert.AreEqual(await GetRawData().ConfigureAwait(false), data);
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@ namespace Test
 
             try
             {
-                var rawData = await GetRawData();
+                var rawData = await GetRawData().ConfigureAwait(false);
                 new FileProcessor().SaveData(rawData, outputPath);
 
                 Assert.IsTrue(File.Exists(outputPath));
@@ -91,7 +91,7 @@ namespace Test
             }
             catch (Exception)
             {
-
+                throw;
             }
             finally
             {
