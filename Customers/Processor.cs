@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -7,7 +8,9 @@ namespace Customers
 {
     public abstract class Processor
     {
-        public static IList<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data).ToArray();
+        public static IList<Customer> Deserialize(string data) =>
+            data.Split(new[] { Environment.NewLine }, StringSplitOptions.None)
+            .Select(c => JsonConvert.DeserializeObject<Customer>(c)).ToArray();
 
         //distance in km
         public static IList<Customer> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>
