@@ -17,6 +17,12 @@ namespace Test
                 {new Customer(5, "Theodore", 53.1427392,-9.7774248)},
             };
 
+        public const string SerializedData =
+            "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
+
+        public const string RawData =
+            "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
+
         [TestMethod]
         public void GetClosestCustomersTest()
         {
@@ -33,10 +39,20 @@ namespace Test
         [TestMethod]
         public void SerializeTest()
         {
-           var data = FileProcessor.Serialize(TestCustomers); 
-           
-           Assert.IsNotNull(data);
-           Assert.AreEqual("[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]", data);
+            var data = FileProcessor.Serialize(TestCustomers);
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(SerializedData, data);
+        }
+
+        [TestMethod]
+        public void DeserializeTest()
+        {
+            var customers = FileProcessor.Deserialize(RawData);
+
+            Assert.IsNotNull(customers);
+            Assert.AreEqual(TestCustomers.Count, customers.Count);
+            Assert.AreEqual(TestCustomers.Count, customers.Count);
         }
     }
 }
