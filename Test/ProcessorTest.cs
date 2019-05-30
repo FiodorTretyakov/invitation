@@ -29,5 +29,14 @@ namespace Test
             Assert.AreEqual(customers[1].UserId, closeCustomers[0].UserId);
             Assert.AreEqual(customers[0].UserId, closeCustomers[1].UserId);
         }
+
+        [TestMethod]
+        public void SerializeTest()
+        {
+           var data = FileProcessor.Serialize(TestCustomers); 
+           
+           Assert.IsNotNull(data);
+           Assert.AreEqual("[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]", data);
+        }
     }
 }
