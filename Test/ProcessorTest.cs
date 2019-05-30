@@ -84,7 +84,7 @@ namespace Test
                 new FileProcessor().SaveData(rawData, outputPath);
 
                 Assert.IsTrue(File.Exists(outputPath));
-                var data = File.ReadAllTextAsync(outputPath);
+                var data = await File.ReadAllTextAsync(outputPath).ConfigureAwait(false);
 
                 Assert.IsNotNull(data);
                 Assert.AreEqual(rawData, data);
