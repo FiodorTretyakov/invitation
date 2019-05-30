@@ -19,4 +19,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Customers\Customers.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="customers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

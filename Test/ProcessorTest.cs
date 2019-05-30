@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Customers;
 using Customers.Entity;
+using System.Threading.Tasks;
 
 namespace Test
 {
@@ -20,8 +22,7 @@ namespace Test
         public const string SerializedData =
             "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
 
-        public const string RawData =
-            "[{\"used_id\":2,\"name\":\"Victoria\",\"latitude\":53.6110885,\"longitude\":-6.1883887},{\"used_id\":1,\"name\":\"Caroline\",\"latitude\":53.3353929,\"longitude\":-6.2489314},{\"used_id\":3,\"name\":\"Christine\",\"latitude\":51.9138467,\"longitude\":-8.4811045},{\"used_id\":5,\"name\":\"Theodore\",\"latitude\":53.1427392,\"longitude\":-9.7774248}]";
+        public async Task<string> GetRawData() => await File.ReadAllTextAsync("customers.json");
 
         [TestMethod]
         public void GetClosestCustomersTest()
@@ -46,9 +47,9 @@ namespace Test
         }
 
         [TestMethod]
-        public void DeserializeTest()
+        public async Task DeserializeTest()
         {
-            var customers = FileProcessor.Deserialize(RawData);
+            var customers = FileProcessor.Deserialize(await GetRawData());
 
             Assert.IsNotNull(customers);
             Assert.AreEqual(TestCustomers.Count, customers.Count);
