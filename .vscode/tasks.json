@@ -17,6 +17,10 @@
             "type": "process",
             "args": [
                 "publish",
+                "-c",
+                "Release",
+                "-r",
+                "win-x64",
                 "${workspaceFolder}/ConsoleRunner/ConsoleRunner.csproj"
             ],
             "problemMatcher": "$tsc"
