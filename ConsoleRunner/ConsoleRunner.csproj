@@ -10,7 +10,6 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <LangVersion>latest</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <UserSecretsId>04bfed38-38ee-444c-a782-9f294d39f531</UserSecretsId>
   </PropertyGroup>
 
 </Project>

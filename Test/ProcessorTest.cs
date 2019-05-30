@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -76,14 +77,26 @@ namespace Test
         public async Task SaveDataTest()
         {
             var outputPath = "output.txt";
-            var rawData = await GetRawData();
-            new FileProcessor().SaveData(rawData, outputPath);
 
-            Assert.IsTrue(File.Exists(outputPath));
-            var data = File.ReadAllTextAsync(outputPath);
+            try
+            {
+                var rawData = await GetRawData();
+                new FileProcessor().SaveData(rawData, outputPath);
 
-            Assert.IsNotNull(data);
-            Assert.AreEqual(rawData, data);
+                Assert.IsTrue(File.Exists(outputPath));
+                var data = File.ReadAllTextAsync(outputPath);
+
+                Assert.IsNotNull(data);
+                Assert.AreEqual(rawData, data);
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                File.Delete(outputPath);
+            }
         }
     }
 }
