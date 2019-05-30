@@ -7,12 +7,12 @@ namespace Customers
 {
     public abstract class Processor
     {
-        public ICollection<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data);
+        public static ICollection<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data);
 
-        public ICollection<Customer> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>
+        public static ICollection<Customer> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>
             customers.Where(c => Locator.IsCloseTo(location, c.UserLocation, distance)).OrderBy(c => c.UserId).ToArray();
 
-        public string Serialize(ICollection<Customer> customers)
+        public static string Serialize(ICollection<Customer> customers)
         {
             return JsonConvert.SerializeObject(customers);
         }
