@@ -14,7 +14,8 @@ namespace Customers
 
         //distance in km
         public static IList<Customer> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>
-            customers.Where(c => Locator.IsCloseTo(location, c.UserLocation, distance)).OrderBy(c => c.UserId).ToArray();
+            customers.Where(c => Locator.IsCloseTo(location, c.UserLocation, distance))
+            .OrderBy(c => c.UserId).ToArray();
 
         public static string Serialize(ICollection<Customer> customers) =>
             JsonConvert.SerializeObject(customers);
