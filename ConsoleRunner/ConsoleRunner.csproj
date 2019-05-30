@@ -12,6 +12,7 @@
     <LangVersion>latest</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <RuntimeIdentifiers>any</RuntimeIdentifiers>
+    <Version>0.0.1.1</Version>
   </PropertyGroup>
 
 </Project>

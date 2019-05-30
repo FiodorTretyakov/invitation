@@ -8,7 +8,7 @@
             "name": "Run",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "publish",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/ConsoleRunner/bin/Debug/ConsoleRunner.dll",
             "args": [],
