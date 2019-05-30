@@ -21,7 +21,8 @@ namespace Customers
 
         protected abstract void SaveData(string data, string outputLocation);
 
-        public void Run(string inputLocation, string outputLocation, int distance, Location location) =>
-            SaveData(Serialize(GetClosestCustomers(Deserialize(GetData(inputLocation)), location, distance)), outputLocation);
+        public void Run(string inputLocation, string outputLocation, int distance, double latitude, double longitude) =>
+            SaveData(Serialize(GetClosestCustomers(Deserialize(GetData(inputLocation)), new Location(latitude, longitude),
+            distance)), outputLocation);
     }
 }
