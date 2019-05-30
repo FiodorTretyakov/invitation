@@ -62,14 +62,28 @@ namespace Test
                 Assert.AreEqual(TestCustomers[i].Name, customers[i].Name);
             }
         }
-        
+
         [TestMethod]
         public async Task GetDataTest()
         {
             var data = new FileProcessor().GetData("https://raw.githubusercontent.com/FiodorTretyakov/invitation/master/Test/customers.json");
-            
+
             Assert.IsNotNull(data);
             Assert.AreEqual(await GetRawData(), data);
+        }
+
+        [TestMethod]
+        public async Task SaveDataTest()
+        {
+            var outputPath = "output.txt";
+            var rawData = await GetRawData();
+            new FileProcessor().SaveData(rawData, outputPath);
+
+            Assert.IsTrue(File.Exists(outputPath));
+            var data = File.ReadAllTextAsync(outputPath);
+
+            Assert.IsNotNull(data);
+            Assert.AreEqual(rawData, data);
         }
     }
 }
