@@ -76,7 +76,7 @@ namespace Test
         [TestMethod]
         public async Task SaveDataTest()
         {
-            var outputPath = "output.txt";
+            var outputPath = "output.json";
 
             try
             {
