@@ -11,7 +11,7 @@ namespace Customers.Entity
             Name = name;
         }
 
-        [JsonProperty("used_id", Required = Required.Always)]
+        [JsonProperty("user_id", Required = Required.Always)]
         public int UserId { get; private set; }
 
         [JsonProperty("name", Required = Required.Always)]

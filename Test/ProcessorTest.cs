@@ -21,7 +21,7 @@ namespace Test
             };
 
         public const string SerializedData =
-            "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
+            "[{\"user_id\":2,\"name\":\"Victoria\"},{\"user_id\":1,\"name\":\"Caroline\"},{\"user_id\":3,\"name\":\"Christine\"},{\"user_id\":5,\"name\":\"Theodore\"}]";
 
         public static async Task<string> GetRawData() => await File.ReadAllTextAsync("customers.txt").ConfigureAwait(false);
 

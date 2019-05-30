@@ -1,4 +1,4 @@
-{"used_id": 2, "name": "Victoria", "latitude": 53.6110885, "longitude": -6.1883887}
-{"used_id": 1, "name": "Caroline", "latitude": 53.3353929, "longitude": -6.2489314}
-{"used_id": 3, "name": "Christine", "latitude": 51.9138467, "longitude": -8.4811045}
-{"used_id": 5, "name": "Theodore", "latitude": 53.1427392, "longitude": -9.7774248}
+{"user_id": 2, "name": "Victoria", "latitude": 53.6110885, "longitude": -6.1883887}
+{"user_id": 1, "name": "Caroline", "latitude": 53.3353929, "longitude": -6.2489314}
+{"user_id": 3, "name": "Christine", "latitude": 51.9138467, "longitude": -8.4811045}
+{"user_id": 5, "name": "Theodore", "latitude": 53.1427392, "longitude": -9.7774248}
