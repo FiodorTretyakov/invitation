@@ -11,6 +11,7 @@
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <LangVersion>latest</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RuntimeIdentifiers>any</RuntimeIdentifiers>
   </PropertyGroup>
 
 </Project>
