@@ -12,6 +12,8 @@ namespace Test
     [TestClass]
     public class ProcessorTest
     {
+        public const string InputLocation = "https://raw.githubusercontent.com/FiodorTretyakov/invitation/master/Test/customers.txt";
+
         public static IList<Customer> TestCustomers => new List<Customer>
             {
                 {new Customer(2, "Victoria", 53.6110885, -6.1883887)},
@@ -67,7 +69,7 @@ namespace Test
         [TestMethod]
         public async Task GetDataTest()
         {
-            var data = new FileProcessor().GetData("https://raw.githubusercontent.com/FiodorTretyakov/invitation/master/Test/customers.txt");
+            var data = new FileProcessor().GetData(InputLocation);
 
             Assert.IsNotNull(data);
             Assert.AreEqual(await GetRawData().ConfigureAwait(false), data);
@@ -76,15 +78,14 @@ namespace Test
         [TestMethod]
         public async Task SaveDataTest()
         {
-            var outputPath = "output.json";
-
+            var output = "saveOutput.json";
             try
             {
                 var rawData = await GetRawData().ConfigureAwait(false);
-                new FileProcessor().SaveData(rawData, outputPath);
+                new FileProcessor().SaveData(rawData, output);
 
-                Assert.IsTrue(File.Exists(outputPath));
-                var data = await File.ReadAllTextAsync(outputPath).ConfigureAwait(false);
+                Assert.IsTrue(File.Exists(output));
+                var data = await File.ReadAllTextAsync(output).ConfigureAwait(false);
 
                 Assert.IsNotNull(data);
                 Assert.AreEqual(rawData, data);
@@ -95,7 +96,32 @@ namespace Test
             }
             finally
             {
-                File.Delete(outputPath);
+                File.Delete(output);
+            }
+        }
+
+        [TestMethod]
+        public async Task RunTest()
+        {
+            var output = "runOutput.json";
+            try
+            {
+                new FileProcessor().Run(InputLocation, output, 200, 53.7151871, -6.3622018);
+
+                Assert.IsTrue(File.Exists(output));
+                var data = await File.ReadAllTextAsync(output).ConfigureAwait(false);
+
+                Assert.IsNotNull(data);
+                Assert.AreEqual("[{\"user_id\":1,\"name\":\"Caroline\"},{\"user_id\":2,\"name\":\"Victoria\"}]",
+                    data);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                File.Delete(output);
             }
         }
     }
