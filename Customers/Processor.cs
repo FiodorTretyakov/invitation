@@ -7,7 +7,7 @@ namespace Customers
 {
     public abstract class Processor
     {
-        public static ICollection<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data);
+        public static IList<Customer> Deserialize(string data) => JsonConvert.DeserializeObject<ICollection<Customer>>(data).ToArray();
 
         //distance in km
         public static IList<Customer> GetClosestCustomers(ICollection<Customer> customers, Location location, int distance) =>

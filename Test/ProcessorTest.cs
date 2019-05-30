@@ -21,7 +21,7 @@ namespace Test
             "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
 
         public const string RawData =
-            "[{\"used_id\":2,\"name\":\"Victoria\"},{\"used_id\":1,\"name\":\"Caroline\"},{\"used_id\":3,\"name\":\"Christine\"},{\"used_id\":5,\"name\":\"Theodore\"}]";
+            "[{\"used_id\":2,\"name\":\"Victoria\",\"latitude\":53.6110885,\"longitude\":-6.1883887},{\"used_id\":1,\"name\":\"Caroline\",\"latitude\":53.3353929,\"longitude\":-6.2489314},{\"used_id\":3,\"name\":\"Christine\",\"latitude\":51.9138467,\"longitude\":-8.4811045},{\"used_id\":5,\"name\":\"Theodore\",\"latitude\":53.1427392,\"longitude\":-9.7774248}]";
 
         [TestMethod]
         public void GetClosestCustomersTest()
@@ -52,7 +52,14 @@ namespace Test
 
             Assert.IsNotNull(customers);
             Assert.AreEqual(TestCustomers.Count, customers.Count);
-            Assert.AreEqual(TestCustomers.Count, customers.Count);
+
+            for (var i = 0; i < customers.Count; i++)
+            {
+                Assert.AreEqual(TestCustomers[i].Latitude, customers[i].Latitude);
+                Assert.AreEqual(TestCustomers[i].Longitude, customers[i].Longitude);
+                Assert.AreEqual(TestCustomers[i].UserId, customers[i].UserId);
+                Assert.AreEqual(TestCustomers[i].Name, customers[i].Name);
+            }
         }
     }
 }
