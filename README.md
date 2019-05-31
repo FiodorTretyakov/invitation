@@ -30,7 +30,7 @@ I selected .net core because of it is cross-platform, great performing, open sou
 The code consist of 3 projects:
 
 * Customers: library solves the main problem;
-* ConsoleRunner: console application that just use library;
+* ConsoleRunner: console application that just uses library;
 * Test;
 
 ### Customers
