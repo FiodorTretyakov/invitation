@@ -3,10 +3,10 @@
         "Fiodor",
         "Tretyakov"
     ],
-    "files.exclude" : {
+    "files.exclude": {
         "**/bin": true,
         "**/obj": true,
         ".vscode/solution-explorer": true,
         "**/coverage.json": true
-    }   
+    }
 }
