@@ -8,7 +8,7 @@ Based the users location, the software allows to select the nearest users within
 * range and center location now hard coded and they are 100 as a distance in km, 53.339428 is latitude, -6.257664 is longitude;
 * input file url should be provided by argument of command line;
 * input file is set of serialized json-objects separated by new-line marker;
-* **output is output.json** in root: it is an json-array of user objects contain only user_id and name;
+* **output is output.json** in the root: it is an json-array of user objects contain only user_id and name;
 
 ## Configuration and Usage
 
