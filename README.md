@@ -22,7 +22,7 @@ Solution wrote on .NET Core 2.2. To run and debug it locally you need:
   * download and install it from: <https://code.visualstudio.com/Download>;
   * to run: Go to Launch -> Debug Run configuration -> specify the input url (there is test default provided);
   * to debug: Go to Tasks -> Run test watch;
-* if you just want to run it without any installations, just go to builds/{CurrentBuild}/{YourOS}, I provided win-x64, linux-x64 and osx-x64 packages included all dependencies;
+* if you just want to run it without any installations, just go to `builds/{CurrentBuild}/{YourOS}`, I provided win-x64, linux-x64 and osx-x64 packages included all dependencies;
 
 ## Technical and Design decisions
 
