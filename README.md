@@ -10,7 +10,7 @@ Based the users location, the software allows to select the nearest users within
 * input file is set of serialized json-objects separated by new-line marker;
 * **output is output.json** in root: it is an json-array of user objects contain only user_id and name;
 
-## Configuration
+## Configuration and usage
 
 Solution wrote on .NET Core 2.2. To run and debug it locally you need:
 
